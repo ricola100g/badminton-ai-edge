@@ -18,11 +18,14 @@ dist/
 
 # Output recorded videos and screenshots
 output/
+badminton_analysis_*.mp4
 *.jpg
 *.jpeg
 *.png
 !assets/*.png
 
+# Ignore test2.mp4 (141MB)
+videos/test2.mp4
+
 # Logs
 *.log
-videos/test2.mp4
