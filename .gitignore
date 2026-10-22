@@ -1,0 +1,27 @@
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temporary and build artifacts
+build/
+dist/
+*.egg-info/
+*.c
+*.o
+*.obj
+*.swp
+*.bak
+*.tmp
+*~
+
+# Output recorded videos and screenshots
+output/
+*.jpg
+*.jpeg
+*.png
+!assets/*.png
+
+# Logs
+*.log
