@@ -2,20 +2,20 @@
 
 [English](README.md) | [繁體中文](README_zh-TW.md) | [简体中文](README_zh-CN.md)
 
-[![Hardware](https://img.shields.io/badge/Hardware-Rockchip%20RK3588-blue.svg)](https://en.wikipedia.org/wiki/Rockchip)
+[![Hardware](https://img.shields.io/badge/Hardware-ProAI88-blue.svg)](https://en.wikipedia.org/wiki/Rockchip)
 [![NPU](https://img.shields.io/badge/NPU-MemryX%20MX3%20M.2-green.svg)](https://memryx.com)
 [![Display](https://img.shields.io/badge/Output-HDMI%201080p60%20Zero--Tear-orange.svg)]()
 [![Inference](https://img.shields.io/badge/Inference-30%20FPS%20Realtime-red.svg)]()
 
-High-performance real-time badminton match analytics and tactical HUD dashboard designed specifically for **Firefly RK3588** and **MemryX MX3 M.2 Edge AI Accelerator**.
-Built upon a zero-copy POSIX shared memory architecture and asynchronous dual-buffered streaming, achieving **1080p60 HDMI fullscreen output** and **authentic 30 FPS YOLOv8 pose inference** with near-zero CPU overhead.
+High-performance real-time badminton match analytics and tactical HUD dashboard designed specifically for **ProAI88** and **MemryX MX3 M.2 Edge AI Accelerator**.
+Achieving **1080p60 HDMI fullscreen output** and **authentic 30 FPS YOLOv8 pose inference** with near-zero CPU overhead.
 Designed for non-engineers, sales, and field specialists to install in 3 simple steps and deliver seamless customer demonstrations.
 
 ---
 
 ## 1. Key Features & Customer Value
 
-1. **Ultra-Smooth Real-Time Playback**: Full NPU acceleration on MemryX MX3 with async dual-buffering keeps ARM CPU cool and locks HDMI 60Hz tear-free presentation at authentic 30 FPS inference.
+1. **Ultra-Smooth Real-Time Playback**: Full NPU acceleration on MemryX MX3 with async dual-buffering keeps ARM CPU cool and locks HDMI 60Hz presentation at authentic 30 FPS inference.
 2. **Singles (1v1) & Doubles (2v2) Support**:
    - **Singles Mode**: Tracks far court (P1) and near court (P2), filtering out high umpire chair and audience.
    - **Doubles Mode**: Simultaneously tracks all 4 players with front/back court separation.
@@ -27,7 +27,7 @@ Designed for non-engineers, sales, and field specialists to install in 3 simple 
    - **Card 1 (Stamina & Radar)**: Instantaneous speed (km/h), cumulative running distance (m), court zones, and dynamic stamina expenditure progress bar.
    - **Card 2 (Offense/Defense Analytics)**: Live posture recognition (`Smash`, `Net Kill`, `Drive`, `Drop`, `Lift`) and pressure distribution balance bar.
    - **Card 3 (Rally Tactics)**: Shot exchange counter, rally intensity rating, and tactical feature assessment.
-5. **Bundled Demonstration Videos**: Pre-packaged high-definition clips (`videos/Badminton_SinglePlay_20s.mp4`) are included—no extra downloads required.
+5. **Bundled Demonstration Videos**: Pre-packaged high-definition clips (`videos/test2.mp4`) are included—no extra downloads required.
 
 ---
 
@@ -35,9 +35,9 @@ Designed for non-engineers, sales, and field specialists to install in 3 simple 
 
 | Component | Specification | Notes |
 | :--- | :--- | :--- |
-| **Mainboard** | Firefly RK3588 (8-Core ARM64) | 4GB / 8GB / 16GB DDR4 compatible |
+| **Mainboard** | ProAI88 (8-Core ARM64) | 4GB / 8GB / 16GB DDR4 compatible |
 | **AI Accelerator** | MemryX MX3 M.2 Key-M PCIe card | Inserted in M.2 slot (`/dev/memx0`) |
-| **Display** | HDMI Monitor (1920x1080 @ 60Hz) | Connected to RK3588 HDMI output |
+| **Display** | HDMI Monitor (1920x1080 @ 60Hz) | Connected to ProAI88 HDMI output |
 | **Operating System** | Ubuntu Linux 20.04 / 22.04 LTS (ARM64) | X11 Desktop environment (`DISPLAY=:0`) |
 | **Camera (Optional)** | UVC USB Camera | Supports 1080p @ 30 FPS MJPG mode |
 
@@ -81,7 +81,7 @@ Upon launch, the HUD startup configuration menu appears:
 +--------------------------------------------------------------+
 |  BADMINTON AI EDGE ANALYTICS — STARTUP MENU                 |
 +--------------------------------------------------------------+
-| [●] Local Video File:  [ videos/Badminton_SinglePlay_20s.mp4 ] [Browse]
+| [●] Local Video File:  [ videos/test2.mp4                    ] [Browse]
 | [ ] USB Live Camera:   [ /dev/video0 - USB 1080P Camera      ] [Refresh]
 |                                                              |
 | Match Mode:    (●) Singles 1v1   ( ) Doubles 2v2   ( ) Auto   |
@@ -95,7 +95,7 @@ Upon launch, the HUD startup configuration menu appears:
 
 ### Recommended Presentation Steps:
 1. **Pre-recorded Demonstration**:
-   - The default selection is `videos/Badminton_SinglePlay_20s.mp4`.
+   - The default selection is `videos/test2.mp4`.
    - Click the green button **"★ START LIVE ANALYTICS ★"**.
    - The system immediately displays the 1080p full-screen analysis with 2D court mini-map and 3 tactical cards.
 2. **Live USB Camera Demonstration**:
@@ -143,7 +143,7 @@ If you encounter any issues during setup or demonstration, follow this step-by-s
     ```bash
     v4l2-ctl -d /dev/video0 --list-formats-ext
     ```
-  - Plug camera into the blue **USB 3.0** port on RK3588.
+  - Plug camera into the blue **USB 3.0** port on ProAI88.
 
 ### Issue 4: Desktop icon prompt says "Untrusted Application Launcher"
 - **Cause**: Ubuntu GNOME security requirement for newly created `.desktop` files.
@@ -172,13 +172,14 @@ badminton-ai-edge/
 ├── run_demo.sh                                      # One-click demo launcher script
 ├── main.py                                          # Launcher entrypoint
 ├── badminton_core.cpython-310-aarch64-linux-gnu.so  # Compiled ARM64 native binary (source protected)
-├── set_performance.sh                               # RK3588 performance governor script
+├── set_performance.sh                               # ProAI88 performance governor script
 ├── assets/
 │   └── badminton_icon.png                           # Desktop launcher icon
 ├── models/
 │   ├── YOLO_v8_medium_pose_640_640_3_onnx.dfp       # MemryX MX3 DFP neural network model
 │   └── YOLO_v8_medium_pose_640_640_3_onnx_post.onnx # Post-processing ONNX model
 └── videos/
+    ├── test2.mp4                                    # Sample match video (Default)
     ├── Badminton_SinglePlay_20s.mp4                 # 20-second sample match video
     └── SinglePlayers_20s.mp4                        # 20-second sample match video
 ```

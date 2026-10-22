@@ -24,8 +24,6 @@ badminton_analysis_*.mp4
 *.png
 !assets/*.png
 
-# Ignore test2.mp4 (141MB)
-videos/test2.mp4
 
 # Logs
 *.log

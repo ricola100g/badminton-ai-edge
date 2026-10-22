@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # Badminton AI Edge Demo Runner Script
-# Hardware: Firefly RK3588 + MemryX MX3 M.2 AI Card
+# Hardware: ProAI88 + MemryX MX3 M.2 AI Card
 # =============================================================================
 
 # Resolve current script directory

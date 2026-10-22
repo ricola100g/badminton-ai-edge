@@ -2,18 +2,18 @@
 
 [English](README.md) | [繁體中文](README_zh-TW.md) | [简体中文](README_zh-CN.md)
 
-[![Hardware](https://img.shields.io/badge/Hardware-Rockchip%20RK3588-blue.svg)](https://en.wikipedia.org/wiki/Rockchip)
+[![Hardware](https://img.shields.io/badge/Hardware-ProAI88-blue.svg)](https://en.wikipedia.org/wiki/Rockchip)
 [![NPU](https://img.shields.io/badge/NPU-MemryX%20MX3%20M.2-green.svg)](https://memryx.com)
 [![Display](https://img.shields.io/badge/Output-HDMI%201080p60%20Zero--Tear-orange.svg)]()
 [![Pipeline](https://img.shields.io/badge/Inference-30%20FPS%20Realtime-red.svg)]()
 
-本專案為專為 **Firefly RK3588 邊緣運算板** 與 **MemryX MX3 M.2 AI 加速卡** 打造的高效能羽球即時影像分析系統。系統透過零複製（Zero-Copy）共享記憶體架構與非同步雙緩衝串流，實現 **1080p 60Hz HDMI 滿版原生輸出** 與 **30 FPS 即時姿態推論**，專為非工程背景的業務與展示人員設計，3 步驟即可完成安裝並向客戶流暢展示。
+本專案為專為 **ProAI88 邊緣運算板** 與 **MemryX MX3 M.2 AI 加速卡** 打造的高效能羽球即時影像分析系統，實現 **1080p 60Hz HDMI 滿版原生輸出** 與 **30 FPS 即時姿態推論**，專為非工程背景的業務與展示人員設計，3 步驟即可完成安裝並向客戶流暢展示。
 
 ---
 
 ## 一、 核心亮點與客戶展示價值
 
-1. **極致流暢展示**：MemryX MX3 NPU 硬體非同步推論，不佔用 ARM CPU 運算資源，維持 30 FPS 實時幀率與 HDMI 60Hz 零撕裂畫面。
+1. **極致流暢展示**：MemryX MX3 NPU 硬體非同步推論，不佔用 ARM CPU 運算資源，維持 30 FPS 實時幀率與 HDMI 60Hz 畫面。
 2. **單打 / 雙打自適應切換**：
    - **單打模式 (1v1)**：鎖定遠端 (P1) 與近端 (P2) 選手，排除裁判高腳椅與看台觀眾。
    - **雙打模式 (2v2)**：鎖定雙方 4 名球員，精準區分前場與後場站位。
@@ -24,7 +24,7 @@
    - **卡片 1**：選手跑動瞬速 (km/h)、全場累計跑動距離 (m)、當前站位區、動態體能消耗進度條。
    - **卡片 2**：中央即時攻防對抗分析，動作辨識（起跳扣殺 Smash、網前撲球 Net Kill、平抽快擋 Drive 等）。
    - **卡片 3**：回合拉鋸拍數即時統計、對抗強度評級、戰術特徵判讀。
-5. **內建示範影片**：已隨附高品質羽球賽事示範影片 (`videos/Badminton_SinglePlay_20s.mp4`)，無須額外下載。
+5. **內建示範影片**：已隨附羽球國際賽事精選示範影片 (`videos/test2.mp4`)，無須額外下載。
 
 ---
 
@@ -32,7 +32,7 @@
 
 | 項目 | 規格需求 | 備註 |
 | :--- | :--- | :--- |
-| **主板** | Firefly RK3588 (8-Core ARM64) | 4GB / 8GB / 16GB DDR4 均可 |
+| **主板** | ProAI88 (8-Core ARM64) | 4GB / 8GB / 16GB DDR4 均可 |
 | **AI 加速卡** | MemryX MX3 M.2 Key-M PCIe | 需插入 M.2 插槽並載入驅動 (`/dev/memx0`) |
 | **螢幕輸出** | HDMI 螢幕 (支援 1920x1080 @ 60Hz) | 連接主板 HDMI 輸出孔 |
 | **作業系統** | Ubuntu Linux 20.04 / 22.04 LTS (ARM64) | 具備 X11 桌面環境 (`DISPLAY=:0`) |
@@ -42,7 +42,7 @@
 
 ## 三、 非工程人員極速安裝指引 (3 步驟搞定)
 
-如果您不是工程師，請打開 RK3588 桌面上的「終端機 (Terminal)」，依序複製貼上以下 3 個步驟：
+如果您不是工程師，請打開 ProAI88 桌面上的「終端機 (Terminal)」，依序複製貼上以下 3 個步驟：
 
 ### 步驟 1：下載專案 (Clone)
 ```bash
@@ -78,7 +78,7 @@ chmod +x install.sh
 +--------------------------------------------------------------+
 |  BADMINTON AI EDGE ANALYTICS — STARTUP MENU                 |
 +--------------------------------------------------------------+
-| [●] 本機視訊檔案: [ videos/Badminton_SinglePlay_20s.mp4  ] [瀏覽]
+| [●] 本機視訊檔案: [ videos/test2.mp4                     ] [瀏覽]
 | [ ] USB 實體攝影機: [ /dev/video0 - USB 1080P Camera     ] [重新整理]
 |                                                              |
 | 比賽模式: (●) 單打 1v1    ( ) 雙打 2v2    ( ) 自動辨識        |
@@ -92,7 +92,7 @@ chmod +x install.sh
 
 ### 展示推薦設定：
 1. **內建影片示範**：
-   - 預設已選取 `videos/Badminton_SinglePlay_20s.mp4`。
+   - 預設已選取 `videos/test2.mp4`。
    - 直接點擊最下方的綠色按鈕 **「★ 開始即時智慧分析 ★」**。
    - 畫面即會進入全螢幕 1080p HDMI 即時分析，右側呈現 2D 俯視小地圖，下方呈現三大動態卡片。
 2. **實體 USB 攝影機示範**：
@@ -140,7 +140,7 @@ chmod +x install.sh
     ```bash
     v4l2-ctl -d /dev/video0 --list-formats-ext
     ```
-  - 確保攝影機插入 RK3588 藍色的 **USB 3.0** 插槽，避免插在黑色 USB 2.0 造成供電或頻寬不足。
+  - 確保攝影機插入 ProAI88 藍色的 **USB 3.0** 插槽，避免插在黑色 USB 2.0 造成供電或頻寬不足。
 
 ### 問題 4：桌面圖示雙擊後提示「Untrusted Application Launcher」
 - **原因**：Ubuntu GNOME 安全機制預設要求使用者手動允許執行。
@@ -169,14 +169,15 @@ badminton-ai-edge/
 ├── run_demo.sh                                      # 一鍵啟動展示腳本
 ├── main.py                                          # 啟動載入器
 ├── badminton_core.cpython-310-aarch64-linux-gnu.so  # 核心演算法原生編譯二進位動態庫 (不含明文源碼)
-├── set_performance.sh                               # RK3588 高效能模式設定腳本
+├── set_performance.sh                               # ProAI88 高效能模式設定腳本
 ├── assets/
 │   └── badminton_icon.png                           # 系統桌面圖示
 ├── models/
 │   ├── YOLO_v8_medium_pose_640_640_3_onnx.dfp       # MemryX MX3 NPU 姿態推論神經網路
 │   └── YOLO_v8_medium_pose_640_640_3_onnx_post.onnx # 後處理 ONNX 模型
 └── videos/
-    ├── Badminton_SinglePlay_20s.mp4                 # 20 秒單打精選示範影片
+    ├── test2.mp4                                    # 男子單打示範影片 (預設)
+    ├── Badminton_SinglePlay_20s.mp4                 # 20 秒單打精選示範短片
     └── SinglePlayers_20s.mp4                        # 20 秒單打示範短片
 ```
 

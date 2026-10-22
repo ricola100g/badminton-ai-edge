@@ -3,7 +3,7 @@
 """
 =============================================================================
 Badminton Edge AI Real-Time Video Analytics Pipeline
-Firefly RK3588 + MemryX MX3 M.2 AI Accelerator
+ProAI88 + MemryX MX3 M.2 AI Accelerator
 =============================================================================
 This program executes the pre-compiled native ARM64 core engine.
 Do not distribute source code without authorization.

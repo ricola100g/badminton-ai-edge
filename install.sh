@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # Badminton AI Edge One-Click Installation & Setup Script
-# Target Hardware: Firefly RK3588 (ARM64) + MemryX MX3 M.2 AI Card
+# Target Hardware: ProAI88 (ARM64) + MemryX MX3 M.2 AI Card
 # Target OS: Ubuntu 20.04 / 22.04 LTS (aarch64)
 # =============================================================================
 
